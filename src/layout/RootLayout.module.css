@@ -1,0 +1,12 @@
+.app {
+  margin: 30px auto;
+  max-width: 1440px;
+
+  display: grid;
+  grid-template-columns: max-content auto;
+
+  border-radius: 10px;
+  overflow: hidden;
+
+  box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.05);
+}

@@ -1,0 +1,23 @@
+.label {
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 16px;
+  letter-spacing: -0.3px;
+  color: #121317;
+
+  padding-left: 17px;
+  margin-bottom: 17px;
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.divider {
+  margin: 37px 0;
+  height: 1px;
+  width: 100%;
+  background-color: #e3e7f4;
+}
