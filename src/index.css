@@ -20,3 +20,10 @@ a {
   text-decoration: none;
   color: inherit;
 }
+
+input {
+  font-family: inherit;
+  color: inherit;
+  outline: none;
+  border: none;
+}

@@ -1,0 +1,25 @@
+.form {
+  flex: 1;
+  position: relative;
+}
+
+.form img {
+  position: absolute;
+  top: 50%;
+  left: 15px;
+  transform: translateY(-50%);
+}
+
+.form input {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  letter-spacing: 0.3px;
+  color: #5d6c76;
+
+  padding: 10px 0 10px 44px;
+  border-radius: 6px;
+
+  max-width: 360px;
+  width: 100%;
+}

@@ -1,0 +1,8 @@
+.home {
+  height: 100%;
+  width: 100%;
+  background: no-repeat url('/background-yellow.png');
+
+  overflow-y: auto;
+  overflow-x: hidden;
+}

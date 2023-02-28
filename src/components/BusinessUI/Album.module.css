@@ -1,0 +1,44 @@
+.album {
+  position: relative;
+}
+
+.background {
+  position: absolute;
+  top: 50px;
+  width: 100%;
+  height: 100%;
+  background: no-repeat url('/shadow.png');
+  background-size: contain;
+  opacity: 0.4;
+  transform: scale(1.4);
+  cursor: auto;
+}
+
+.album img,
+.album h3,
+.album p {
+  position: relative;
+  z-index: 10;
+  cursor: pointer;
+}
+
+.album img {
+  margin-bottom: 12px;
+}
+
+.album h3 {
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 12px;
+  color: #121317;
+  text-align: center;
+
+  margin-bottom: 9px;
+}
+
+.album p {
+  font-size: 9px;
+  line-height: 100%;
+  text-align: center;
+  color: #94a7af;
+}

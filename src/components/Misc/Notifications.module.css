@@ -1,0 +1,22 @@
+.notifications {
+  position: relative;
+  cursor: pointer;
+}
+
+.notifications span {
+  position: absolute;
+  top: -5px;
+  right: -8px;
+
+  width: 14px;
+  height: 14px;
+  background-color: #0149ff;
+  border-radius: 7px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #fff;
+  padding-left: 1px;
+}

@@ -6,7 +6,7 @@ const Sidebar = () => {
     <aside className={styles.sidebar}>
       <div className={styles.logo}>
         <img src="/logo.svg" />
-        <h1>THE PLAYLIST</h1>
+        <h2>THE PLAYLIST</h2>
       </div>
       <Navigation />
       <div className={styles.profile}>

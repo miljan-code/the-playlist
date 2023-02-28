@@ -1,0 +1,22 @@
+.albums {
+  padding-left: 24px;
+}
+
+.label {
+  font-family: 'Montserrat', 'Open Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20px;
+
+  margin-bottom: 16px;
+}
+
+.album-list {
+  margin-left: -24px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+
+  margin-bottom: 44px;
+}

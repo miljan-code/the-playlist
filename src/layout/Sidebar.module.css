@@ -4,9 +4,10 @@
   gap: 44px;
 
   padding: 20px 0 30px;
-  height: 900px;
+  height: 990px;
 
   background-color: #fff;
+  border-right: 1px solid #e3e7f4;
 }
 
 .logo {
@@ -17,7 +18,7 @@
   padding-left: 17px;
 }
 
-.logo h1 {
+.logo h2 {
   font-size: 20px;
   font-weight: 700;
   line-height: 27px;
@@ -33,6 +34,8 @@
   display: flex;
   align-items: center;
   background-color: #f4f5f9;
+
+  cursor: pointer;
 }
 
 .profile img:first-child {
