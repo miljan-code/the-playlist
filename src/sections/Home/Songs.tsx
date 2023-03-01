@@ -4,8 +4,8 @@ import styles from './Songs.module.css';
 const Songs = () => {
   return (
     <div className={styles.songs}>
-      <Playlist />
-      <Playlist />
+      <Playlist label="songs" />
+      <Playlist label="albums" />
     </div>
   );
 };

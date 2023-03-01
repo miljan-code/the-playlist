@@ -1,5 +1,5 @@
 import styles from './RootLayout.module.css';
-import { Sidebar, Content } from '.';
+import { Sidebar, Content, Player } from '.';
 import { Outlet } from 'react-router-dom';
 
 const RootLayout = () => {
@@ -8,6 +8,7 @@ const RootLayout = () => {
       <Sidebar />
       <Content>
         <Outlet />
+        <Player />
       </Content>
     </div>
   );

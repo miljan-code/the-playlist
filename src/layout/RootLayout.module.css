@@ -1,6 +1,7 @@
 .app {
   margin: 30px auto;
   max-width: 1440px;
+  height: 900px;
 
   display: grid;
   grid-template-columns: max-content auto;

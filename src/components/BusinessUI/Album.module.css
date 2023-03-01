@@ -24,6 +24,9 @@
 
 .album img {
   margin-bottom: 12px;
+  max-width: 168px;
+  width: 100%;
+  border-radius: 10px;
 }
 
 .album h3 {
