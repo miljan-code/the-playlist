@@ -8,6 +8,7 @@ const Navigation = () => {
 
   return (
     <nav className={styles.navigation}>
+      {/* TODO: merge these two separeted navs into one and keep only usefull links */}
       <p className={styles.label}>Browse Music</p>
       <div className={styles.links}>
         {browseMusic.map(item => (
@@ -17,6 +18,7 @@ const Navigation = () => {
             isActive={item.label === activeLink}
             setIsActive={setActiveLink}
             Icon={item.icon}
+            link={item.link}
           />
         ))}
       </div>
@@ -30,6 +32,7 @@ const Navigation = () => {
             isActive={item.label === activeLink}
             setIsActive={setActiveLink}
             Icon={item.icon}
+            link={item.link}
           />
         ))}
       </div>

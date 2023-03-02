@@ -4,7 +4,10 @@ import RootLayout from './layout/RootLayout';
 import './index.css';
 
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import { Home } from './pages';
+import { Provider } from 'react-redux';
+import { store } from './redux/store';
+
+import { Home, Recommended } from './pages';
 
 const router = createBrowserRouter([
   {
@@ -15,12 +18,18 @@ const router = createBrowserRouter([
         path: '/',
         element: <Home />,
       },
+      {
+        path: '/recommended',
+        element: <Recommended />,
+      },
     ],
   },
 ]);
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <Provider store={store}>
+      <RouterProvider router={router} />
+    </Provider>
   </React.StrictMode>
 );

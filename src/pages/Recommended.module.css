@@ -1,0 +1,19 @@
+.recommended {
+  height: 100%;
+  padding: 24px;
+}
+
+.recommended h2 {
+  font-family: 'Montserrat', 'Open Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20px;
+
+  margin-bottom: 12px;
+}
+
+.songs-list {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 24px;
+}

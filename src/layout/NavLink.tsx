@@ -6,11 +6,13 @@ type Props = {
   isActive: boolean;
   setIsActive: React.Dispatch<React.SetStateAction<string>>;
   Icon: ({ active }: { active: boolean }) => JSX.Element;
+  link: string;
 };
 
-const NavLink = ({ label, isActive, setIsActive, Icon }: Props) => {
+const NavLink = ({ label, isActive, setIsActive, Icon, link }: Props) => {
   return (
-    <Link onClick={() => setIsActive(label)} to="/" className={styles.link}>
+    // FIXME: change active state based on routes url
+    <Link onClick={() => setIsActive(label)} to={link} className={styles.link}>
       <div className={`${isActive ? styles.active : styles.inactive}`} />
       <div className={styles.icon}>
         <Icon active={isActive} />
