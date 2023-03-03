@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { shuffle } from '../misc/helpers';
-import { RootObject } from '../model/shazamTypes';
+import { ShazamObject } from '../model/shazamTypes';
 
 export const shazamApi = createApi({
   reducerPath: 'shazamApi',
@@ -13,13 +13,29 @@ export const shazamApi = createApi({
     },
   }),
   endpoints: builder => ({
-    getTopCharts: builder.query<RootObject[], number>({
+    getTopCharts: builder.query<ShazamObject[], number>({
       query: () => '/charts/world',
-      transformResponse: (result: RootObject[], _, num) => {
+      transformResponse: (result: ShazamObject[], _, num) => {
         return shuffle(result).slice(0, num);
+      },
+    }),
+    getTracksByLocation: builder.query<ShazamObject[], string>({
+      query: country => `/charts/country?country_code=${country}`,
+      transformResponse: (result: ShazamObject[]) => {
+        return result.slice(0, 20);
+      },
+    }),
+    getTracksByGenre: builder.query<ShazamObject[], string>({
+      query: genre => `/charts/genre-world?genre_code=${genre}`,
+      transformResponse: (result: ShazamObject[]) => {
+        return result.slice(0, 20);
       },
     }),
   }),
 });
 
-export const { useGetTopChartsQuery } = shazamApi;
+export const {
+  useGetTopChartsQuery,
+  useGetTracksByLocationQuery,
+  useGetTracksByGenreQuery,
+} = shazamApi;

@@ -1,0 +1,46 @@
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { ShazamObject } from '../model/shazamTypes';
+
+export type State = {
+  currentSong: ShazamObject;
+  isPlaying: boolean;
+  favourites: ShazamObject[];
+};
+
+const initialState: State = {
+  currentSong: {} as ShazamObject,
+  isPlaying: false,
+  favourites: [],
+};
+
+const tracksSlice = createSlice({
+  name: 'tracks',
+  initialState,
+  reducers: {
+    setCurrentSong: (state, action: PayloadAction<ShazamObject>) => {
+      state.currentSong = action.payload;
+      state.isPlaying = true;
+    },
+    setPlaySong: (state, action: PayloadAction<boolean>) => {
+      state.isPlaying = action.payload;
+    },
+    addToFavourites: (state, action: PayloadAction<ShazamObject>) => {
+      state.favourites.push(action.payload);
+    },
+    removeFromFavourites: (state, action: PayloadAction<string>) => {
+      const songIndex = state.favourites.findIndex(
+        song => song.key === action.payload
+      );
+      state.favourites.splice(songIndex, 1);
+    },
+  },
+});
+
+export const {
+  setCurrentSong,
+  setPlaySong,
+  addToFavourites,
+  removeFromFavourites,
+} = tracksSlice.actions;
+
+export default tracksSlice.reducer;

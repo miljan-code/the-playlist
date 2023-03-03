@@ -10,6 +10,8 @@
 
   display: flex;
   align-items: center;
+
+  z-index: 100;
 }
 
 .controls {
@@ -55,6 +57,15 @@
   width: 58px;
   height: 58px;
   border-radius: 50%;
+}
+
+.song-labels p:first-child,
+.song-labels p:last-child {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 100px;
+  width: 100%;
 }
 
 .song-labels p:first-child {

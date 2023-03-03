@@ -6,9 +6,19 @@
   color: #121317;
 
   margin-bottom: 14px;
+
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }
 
 .song-list {
   display: flex;
   flex-direction: column;
+}
+
+.flag {
+  width: 20px;
+  height: auto;
+  border-radius: 3px;
 }

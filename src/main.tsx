@@ -7,7 +7,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { store } from './redux/store';
 
-import { Home, Recommended } from './pages';
+import { Favourites, Home, Recommended, TopCharts, History } from './pages';
 
 const router = createBrowserRouter([
   {
@@ -21,6 +21,18 @@ const router = createBrowserRouter([
       {
         path: '/recommended',
         element: <Recommended />,
+      },
+      {
+        path: '/top-charts',
+        element: <TopCharts />,
+      },
+      {
+        path: '/favourites',
+        element: <Favourites />,
+      },
+      {
+        path: '/history',
+        element: <History />,
       },
     ],
   },

@@ -9,8 +9,15 @@ const Recommended = () => {
 
   return (
     <div className={styles.recommended}>
-      <h2>Recommended for you</h2>
-      <div className={styles['songs-list']}></div>
+      <div className={styles.hero}>
+        <h2>The Best Tracks of 2023</h2>
+        <h3>Just for You!</h3>
+      </div>
+      <div className={styles['songs-list']}>
+        {data?.map(item => (
+          <Album key={crypto.randomUUID()} song={item} />
+        ))}
+      </div>
     </div>
   );
 };

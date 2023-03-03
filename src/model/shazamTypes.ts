@@ -1,4 +1,4 @@
-export interface RootObject {
+export interface ShazamObject {
   layout: string;
   type: string;
   key: string;

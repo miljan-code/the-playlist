@@ -34,6 +34,11 @@
   color: #5d6c76;
 
   margin-top: -1px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 10px;
 }
 
 .details img {

@@ -9,11 +9,11 @@ const Sidebar = () => {
         <h2>THE PLAYLIST</h2>
       </div>
       <Navigation />
-      <div className={styles.profile}>
+      {/* <div className={styles.profile}>
         <img src="/avatar.svg" />
         <p>Elsie Saunders</p>
         <img src="/arrow.svg" />
-      </div>
+      </div> */}
     </aside>
   );
 };

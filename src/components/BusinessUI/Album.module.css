@@ -86,3 +86,13 @@
   text-align: center;
   color: #94a7af;
 }
+
+.album h3,
+.album p {
+  max-width: 168px;
+  width: 100%;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

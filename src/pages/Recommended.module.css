@@ -1,19 +1,36 @@
-.recommended {
-  height: 100%;
+.hero {
+  background: no-repeat url('/bg-yellow-2.png');
   padding: 24px;
+  padding-top: 0;
+  height: 275px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 32px;
 }
 
-.recommended h2 {
+.hero h2 {
   font-family: 'Montserrat', 'Open Sans', sans-serif;
-  font-size: 16px;
+  font-size: 48px;
   font-weight: 700;
   line-height: 20px;
 
-  margin-bottom: 12px;
+  color: #001aff;
+}
+
+.hero h3 {
+  font-family: 'Montserrat', 'Open Sans', sans-serif;
+  font-size: 32px;
 }
 
 .songs-list {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
   gap: 24px;
+
+  padding: 24px;
+  padding-top: 48px;
+  margin-top: -100px;
 }

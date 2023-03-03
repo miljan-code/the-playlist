@@ -24,16 +24,14 @@ const Albums = () => {
 
   return (
     <div className={styles.albums}>
-      <p className={styles.label}>Recommended Songs</p>
+      <p className={styles.label}>Recommended for you</p>
       <div ref={divRef} className={styles['album-list']}>
-        {/* TODO: change to Songs instead of Albums */}
+        {/* TODO: can you fetch albums? */}
         {data?.map(item => (
           <Album
             key={crypto.randomUUID()}
             // TODO: change /album-1 to more generic one
-            cover={item.images?.coverart || '/album-1.png'}
-            title={item.title}
-            artist={item.subtitle}
+            song={item}
           />
         ))}
       </div>

@@ -13,7 +13,7 @@ const Hero = () => {
       </h1>
       <div className={styles.buttons}>
         <div className={styles.cta}>
-          <p>Play now</p>
+          <p>Explore</p>
           <img src="/arrow-right.svg" />
         </div>
         <div className={styles['small-btns']}>

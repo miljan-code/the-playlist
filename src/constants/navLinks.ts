@@ -1,9 +1,4 @@
-import {
-  HomeIcon,
-  RecommendedIcon,
-  NewReleasesIcon,
-  TopChartsIcon,
-} from '../layout/Icons';
+import { HomeIcon, RecommendedIcon, TopChartsIcon } from '../layout/Icons';
 import FavouritesIcon from '../layout/Icons/FavouritesIcon';
 import HistoryIcon from '../layout/Icons/HistoryIcon';
 import { NavLink } from '../model/types';
@@ -18,11 +13,6 @@ export const browseMusic: NavLink[] = [
     label: 'Recommendations',
     icon: RecommendedIcon,
     link: '/recommended',
-  },
-  {
-    label: 'New Releases',
-    icon: NewReleasesIcon,
-    link: '/new-releases',
   },
   {
     label: 'Top Charts',
