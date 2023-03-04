@@ -1,11 +1,9 @@
 import { Album } from '../components';
-import { useGetTopChartsQuery } from '../redux/shazamApi';
+import { useSongsData } from '../redux/shazamApi';
 import styles from './Recommended.module.css';
 
 const Recommended = () => {
-  const { data, isFetching, error } = useGetTopChartsQuery(50);
-
-  console.log(data);
+  const data = useSongsData({ type: 'top-charts' });
 
   return (
     <div className={styles.recommended}>
@@ -14,8 +12,13 @@ const Recommended = () => {
         <h3>Just for You!</h3>
       </div>
       <div className={styles['songs-list']}>
-        {data?.map(item => (
-          <Album key={crypto.randomUUID()} song={item} />
+        {data?.map((item, i) => (
+          <Album
+            key={crypto.randomUUID()}
+            song={item}
+            playlist={data}
+            index={i}
+          />
         ))}
       </div>
     </div>

@@ -5,12 +5,21 @@ export type State = {
   currentSong: ShazamObject;
   isPlaying: boolean;
   favourites: ShazamObject[];
+  playlist: ShazamObject[];
+  currentIndex: number;
+};
+
+type PlaylistPayload = {
+  playlist: ShazamObject[];
+  index: number;
 };
 
 const initialState: State = {
   currentSong: {} as ShazamObject,
   isPlaying: false,
   favourites: [],
+  playlist: [],
+  currentIndex: 0,
 };
 
 const tracksSlice = createSlice({
@@ -33,6 +42,10 @@ const tracksSlice = createSlice({
       );
       state.favourites.splice(songIndex, 1);
     },
+    createPlaylist: (state, action: PayloadAction<PlaylistPayload>) => {
+      state.playlist = action.payload.playlist;
+      state.currentIndex = action.payload.index;
+    },
   },
 });
 
@@ -41,6 +54,7 @@ export const {
   setPlaySong,
   addToFavourites,
   removeFromFavourites,
+  createPlaylist,
 } = tracksSlice.actions;
 
 export default tracksSlice.reducer;

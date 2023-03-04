@@ -5,6 +5,7 @@ import {
   setPlaySong,
   addToFavourites,
   removeFromFavourites,
+  createPlaylist,
 } from '../../redux/tracksSlice';
 import { toast } from 'react-toastify';
 import styles from './Song.module.css';
@@ -12,18 +13,20 @@ import styles from './Song.module.css';
 type SongProps = {
   data: ShazamObject;
   index: number;
+  playlist: ShazamObject[];
 };
 
-const Song = ({ data, index }: SongProps) => {
+const Song = ({ data, playlist, index }: SongProps) => {
   const dispatch = useAppDispatch();
   const { favourites } = useAppSelector(state => state.tracks);
 
-  const songNumber = index < 10 ? `0${index}` : `${index}`;
+  const songNumber = index < 10 ? `0${index + 1}` : `${index + 1}`;
   const alreadyAdded = favourites.some(item => item.key === data.key);
 
   const handleTrackPlay = () => {
     dispatch(setCurrentSong(data));
     dispatch(setPlaySong(true));
+    dispatch(createPlaylist({ playlist, index }));
   };
 
   const handleAddToFavourites = () => {

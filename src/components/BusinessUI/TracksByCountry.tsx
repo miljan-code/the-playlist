@@ -1,18 +1,12 @@
 import { useState, useEffect } from 'react';
 import styles from './TracksByCountry.module.css';
 import Song from './Song';
-import { useGetTracksByLocationQuery } from '../../redux/shazamApi';
-import { availableCountries } from '../../constants/availableCountries';
+import { useSongsData } from '../../redux/shazamApi';
 import Flags from 'country-flag-icons/react/3x2';
 
 const TracksByCountry = () => {
-  const [location, setLocation] = useState('GB');
   const [country, setCountry] = useState('');
-  const {
-    data: playlist,
-    isFetching,
-    error,
-  } = useGetTracksByLocationQuery(location);
+  const playlist = useSongsData({ type: 'top-charts', num: 20 });
 
   const Flag = Flags[country as keyof typeof Flags];
 
@@ -24,17 +18,9 @@ const TracksByCountry = () => {
     )
       .then(res => res.json())
       .then(data => {
-        if (availableCountries.includes(data.location.country)) {
-          setLocation(data.location.country);
-        } else {
-          setLocation('GB');
-        }
         setCountry(data.location.country);
       });
   }, []);
-
-  // TODO: Add Loading component when isFetching
-  // TODO: Add error check
 
   return (
     <div className={styles.playlist}>
@@ -44,7 +30,12 @@ const TracksByCountry = () => {
       </h2>
       <div className={styles['song-list']}>
         {playlist?.map((data, i) => (
-          <Song key={crypto.randomUUID()} data={data} index={i + 1} />
+          <Song
+            key={crypto.randomUUID()}
+            data={data}
+            index={i}
+            playlist={playlist}
+          />
         ))}
       </div>
     </div>

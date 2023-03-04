@@ -109,3 +109,27 @@
 .buttons img {
   cursor: pointer;
 }
+
+.volume {
+  position: relative;
+}
+
+.volume-slider {
+  position: absolute;
+  transform: rotate(-90deg);
+  top: -90px;
+  left: -57px;
+}
+
+.spinning {
+  animation: spin360 4s linear infinite;
+}
+
+@keyframes spin360 {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

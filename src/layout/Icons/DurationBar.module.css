@@ -1,0 +1,11 @@
+.durationbar {
+  cursor: pointer;
+}
+
+.animation {
+  animation-play-state: paused;
+}
+
+.animation:hover {
+  animation-play-state: running;
+}
