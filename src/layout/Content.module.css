@@ -1,5 +1,4 @@
 .content {
-  /* max-height: 990px; */
   height: 100%;
   width: 100%;
 
@@ -10,8 +9,3 @@
 .content::-webkit-scrollbar {
   width: 0px;
 }
-
-/* .content::-webkit-scrollbar-thumb {
-  background-color: #5071ff;
-  border-radius: 12px;
-} */

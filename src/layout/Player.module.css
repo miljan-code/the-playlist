@@ -59,6 +59,10 @@
   border-radius: 50%;
 }
 
+.song-labels {
+  width: 75px;
+}
+
 .song-labels p:first-child,
 .song-labels p:last-child {
   overflow: hidden;
@@ -117,8 +121,27 @@
 .volume-slider {
   position: absolute;
   transform: rotate(-90deg);
-  top: -90px;
-  left: -57px;
+  top: -65px;
+  left: -46px;
+}
+
+.slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100px;
+  height: 5px;
+  background-color: #b5b6bd77;
+  border-radius: 5px;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 12px;
+  width: 12px;
+  border-radius: 50%;
+  background: #001aff;
+  cursor: pointer;
 }
 
 .spinning {

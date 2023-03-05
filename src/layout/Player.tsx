@@ -1,9 +1,5 @@
 import { ChangeEvent, useEffect, useRef, useState } from 'react';
-import { AiOutlinePause } from 'react-icons/ai';
-import { BsPlayFill } from 'react-icons/bs';
-import { DurationBar, RepeatIcon, AddToFavouritesIcon } from './Icons';
 import { useAppSelector, useAppDispatch } from '../redux/hooks';
-import styles from './Player.module.css';
 import {
   createPlaylist,
   setCurrentSong,
@@ -11,13 +7,23 @@ import {
   addToFavourites,
   removeFromFavourites,
 } from '../redux/tracksSlice';
+import {
+  DurationBar,
+  RepeatIcon,
+  AddToFavouritesIcon,
+  ShuffledIcon,
+} from './Icons';
 import { toast } from 'react-toastify';
-import ShuffledIcon from './Icons/ShuffledIcon';
+import { AiOutlinePause } from 'react-icons/ai';
+import { BsPlayFill } from 'react-icons/bs';
+import styles from './Player.module.css';
 
 const Player = () => {
+  // redux
   const dispatch = useAppDispatch();
   const { currentSong, isPlaying, playlist, currentIndex, favourites } =
     useAppSelector(state => state.tracks);
+  // state
   const [repeat, setRepeat] = useState(false);
   const [isFavourite, setIsFavourite] = useState(false);
   const [isShuffled, setIsShuffled] = useState(false);
@@ -25,9 +31,20 @@ const Player = () => {
   const [volume, setVolume] = useState(0.5);
   const [currentTime, setCurrentTime] = useState('00:00');
   const [durationPercent, setDurationPercent] = useState(0);
+  // refs
   const playerRef = useRef<HTMLAudioElement>(null);
   const sliderRef = useRef<HTMLDivElement>(null);
 
+  // side effects
+  useEffect(() => {
+    if (isPlaying) playerRef.current!.play();
+    else if (!isPlaying) playerRef.current!.pause();
+
+    const isInFav = favourites.some(item => item.key === currentSong.key);
+    setIsFavourite(isInFav);
+  }, [currentSong, isPlaying, favourites]);
+
+  // data transformation
   const activeSong =
     currentSong?.hub?.actions && currentSong?.hub?.actions[1]?.uri;
 
@@ -38,14 +55,7 @@ const Player = () => {
         .substring(14, 19)) ||
     '01:29';
 
-  useEffect(() => {
-    if (isPlaying) playerRef.current!.play();
-    else if (!isPlaying) playerRef.current!.pause();
-
-    const isInFav = favourites.some(item => item.key === currentSong.key);
-    setIsFavourite(isInFav);
-  }, [currentSong, isPlaying, favourites]);
-
+  // handlers
   const handlePlayPause = () => {
     dispatch(setPlaySong(!isPlaying));
   };
@@ -131,7 +141,7 @@ const Player = () => {
         <DurationBar
           currentTime={durationPercent || 0}
           changeTime={handleChangeTime}
-          durationTime={playerRef.current!.duration || 0}
+          durationTime={playerRef.current?.duration || 0}
         />
         <p>
           {currentTime} <span>/ {songDuration}</span>
@@ -150,6 +160,7 @@ const Player = () => {
                 value={volume * 100}
                 onChange={e => handleVolumeChange(e)}
                 type="range"
+                className={styles.slider}
               />
             </div>
           )}

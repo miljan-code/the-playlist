@@ -1,13 +1,16 @@
-import styles from './Sidebar.module.css';
+import { Link } from 'react-router-dom';
 import { Navigation } from '.';
+import styles from './Sidebar.module.css';
 
 const Sidebar = () => {
   return (
     <aside className={styles.sidebar}>
-      <div className={styles.logo}>
-        <img src="/logo.svg" />
-        <h2>THE PLAYLIST</h2>
-      </div>
+      <Link to="/">
+        <div className={styles.logo}>
+          <img src="/logo.svg" />
+          <h2>THE PLAYLIST</h2>
+        </div>
+      </Link>
       <Navigation />
       {/* <div className={styles.profile}>
         <img src="/avatar.svg" />

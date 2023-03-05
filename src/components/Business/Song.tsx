@@ -1,5 +1,4 @@
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
-import { ShazamObject } from '../../model/shazamTypes';
 import {
   setCurrentSong,
   setPlaySong,
@@ -7,6 +6,7 @@ import {
   removeFromFavourites,
   createPlaylist,
 } from '../../redux/tracksSlice';
+import { ShazamObject } from '../../model/types';
 import { toast } from 'react-toastify';
 import styles from './Song.module.css';
 
@@ -17,12 +17,17 @@ type SongProps = {
 };
 
 const Song = ({ data, playlist, index }: SongProps) => {
+  // hooks
   const dispatch = useAppDispatch();
   const { favourites } = useAppSelector(state => state.tracks);
 
-  const songNumber = index < 10 ? `0${index + 1}` : `${index + 1}`;
+  // data transformation
+  const songNumber = index < 9 ? `0${index + 1}` : `${index + 1}`;
   const alreadyAdded = favourites.some(item => item.key === data.key);
+  const title =
+    data.title.length > 30 ? data.title.slice(0, 30) + '...' : data.title;
 
+  // handlers
   const handleTrackPlay = () => {
     dispatch(setCurrentSong(data));
     dispatch(setPlaySong(true));
@@ -43,19 +48,22 @@ const Song = ({ data, playlist, index }: SongProps) => {
       <div className={styles.details}>
         <p>{songNumber}</p>
         <span onClick={handleAddToFavourites}>{alreadyAdded ? '-' : '+'}</span>
-        <img onClick={handleTrackPlay} src={data.images?.coverart} />
-        <div className={styles.labels}>
-          <p onClick={handleTrackPlay}>{data.title}</p>
-          <p onClick={handleTrackPlay}>{data.subtitle}</p>
+        <img
+          onClick={handleTrackPlay}
+          src={data.images?.coverart || '/album-5.png'}
+        />
+        <div onClick={handleTrackPlay} className={styles.labels}>
+          <p>{title}</p>
+          <p>{data.subtitle}</p>
         </div>
       </div>
       <div className={styles.options}>
         <p>1:29</p>
-        <div className={styles.dots}>
+        {/* <div className={styles.dots}>
           <div className={styles.dot} />
           <div className={styles.dot} />
           <div className={styles.dot} />
-        </div>
+        </div> */}
       </div>
     </div>
   );

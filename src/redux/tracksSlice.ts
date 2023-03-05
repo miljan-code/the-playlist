@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { ShazamObject } from '../model/shazamTypes';
+import { ShazamObject } from '../model/types';
 
 export type State = {
   currentSong: ShazamObject;

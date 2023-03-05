@@ -1,5 +1,9 @@
 .notifications {
   position: relative;
+}
+
+.wrapper {
+  position: relative;
   cursor: pointer;
 }
 
@@ -19,4 +23,17 @@
 
   color: #fff;
   padding-left: 1px;
+}
+
+.popup {
+  position: absolute;
+  top: 30px;
+  right: 0;
+
+  font-size: 12px;
+
+  width: 150px;
+  padding: 10px 20px;
+  background-color: #fff;
+  border-radius: 7px;
 }

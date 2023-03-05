@@ -5,6 +5,9 @@ import TopChartsIcon from './TopChartsIcon';
 import DurationBar from './DurationBar';
 import RepeatIcon from './RepeatIcon';
 import AddToFavouritesIcon from './AddToFavouritesIcon';
+import FavouritesIcon from './FavouritesIcon';
+import HistoryIcon from './HistoryIcon';
+import ShuffledIcon from './ShuffledIcon';
 
 export {
   HomeIcon,
@@ -14,4 +17,7 @@ export {
   DurationBar,
   RepeatIcon,
   AddToFavouritesIcon,
+  FavouritesIcon,
+  HistoryIcon,
+  ShuffledIcon,
 };

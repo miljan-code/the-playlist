@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
-import styles from './TracksByCountry.module.css';
-import Song from './Song';
 import { useSongsData } from '../../redux/shazamApi';
+import Song from './Song';
 import Flags from 'country-flag-icons/react/3x2';
+import styles from './TracksByCountry.module.css';
 
 const TracksByCountry = () => {
   const [country, setCountry] = useState('');

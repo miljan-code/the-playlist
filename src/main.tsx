@@ -7,7 +7,14 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { store } from './redux/store';
 
-import { Favourites, Home, Recommended, TopCharts, History } from './pages';
+import {
+  Favourites,
+  Home,
+  Recommended,
+  TopCharts,
+  History,
+  SearchPage,
+} from './pages';
 
 const router = createBrowserRouter([
   {
@@ -33,6 +40,10 @@ const router = createBrowserRouter([
       {
         path: '/history',
         element: <History />,
+      },
+      {
+        path: '/search',
+        element: <SearchPage />,
       },
     ],
   },

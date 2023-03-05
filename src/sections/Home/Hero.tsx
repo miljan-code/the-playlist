@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styles from './Hero.module.css';
 
 const Hero = () => {
@@ -12,18 +13,20 @@ const Hero = () => {
         Summer Playlist
       </h1>
       <div className={styles.buttons}>
-        <div className={styles.cta}>
-          <p>Explore</p>
-          <img src="/arrow-right.svg" />
-        </div>
-        <div className={styles['small-btns']}>
+        <Link to="/recommended">
+          <div className={styles.cta}>
+            <p>Explore</p>
+            <img src="/arrow-right.svg" />
+          </div>
+        </Link>
+        {/* <div className={styles['small-btns']}>
           <div className={styles['small-btn']}>
             <img src="/bookmark-icon.svg" />
           </div>
           <div className={styles['small-btn']}>
             <img src="/share-icon.svg" />
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );

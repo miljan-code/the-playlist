@@ -1,9 +1,9 @@
-import { Album } from '../components';
 import { useSongsData } from '../redux/shazamApi';
+import { Album } from '../components';
 import styles from './Recommended.module.css';
 
 const Recommended = () => {
-  const data = useSongsData({ type: 'top-charts' });
+  const data = useSongsData({ type: 'top-charts2' });
 
   return (
     <div className={styles.recommended}>

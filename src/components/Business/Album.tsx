@@ -1,12 +1,12 @@
-import { BsPlayCircleFill } from 'react-icons/bs';
-import styles from './Album.module.css';
-import { ShazamObject } from '../../model/shazamTypes';
 import { useAppDispatch } from '../../redux/hooks';
 import {
   setCurrentSong,
   setPlaySong,
   createPlaylist,
 } from '../../redux/tracksSlice';
+import { ShazamObject } from '../../model/types';
+import { BsPlayCircleFill } from 'react-icons/bs';
+import styles from './Album.module.css';
 
 type AlbumType = {
   song: ShazamObject;
@@ -21,19 +21,17 @@ const Album = ({ song, playlist, index }: AlbumType) => {
     dispatch(setCurrentSong(song));
     dispatch(setPlaySong(true));
     dispatch(createPlaylist({ playlist, index }));
-    console.log(playlist);
   };
 
   return (
     <div className={styles.album}>
       <div className={styles.background} />
       <div className={styles['img-container']}>
-        <img src={song.images?.coverart || 'no-pic-placeholder'} />
+        <img src={song.images?.coverart || '/album-5.png'} />
         <div className={styles['img-overlay']}>
           <BsPlayCircleFill className={styles.icon} onClick={handleTrackPlay} />
         </div>
       </div>
-      {/* TODO: on hover show full title or artist name if is truncated */}
       <h3>{song.title}</h3>
       <p>{song.subtitle}</p>
     </div>

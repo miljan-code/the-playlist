@@ -1,16 +1,16 @@
-import styles from './RootLayout.module.css';
-import { Sidebar, Content, Player } from '.';
+import { useEffect } from 'react';
 import { Outlet } from 'react-router-dom';
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 import { useSongsData } from '../redux/shazamApi';
 import { useAppDispatch } from '../redux/hooks';
-import { useEffect } from 'react';
 import {
   createPlaylist,
   setCurrentSong,
   setPlaySong,
 } from '../redux/tracksSlice';
+import { Sidebar, Content, Player } from '.';
+import { ToastContainer } from 'react-toastify';
+import styles from './RootLayout.module.css';
+import 'react-toastify/dist/ReactToastify.css';
 
 const RootLayout = () => {
   const dispatch = useAppDispatch();

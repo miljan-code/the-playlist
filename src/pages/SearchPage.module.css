@@ -1,0 +1,17 @@
+.search {
+  min-height: 100%;
+}
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 24px;
+
+  padding: 24px;
+  padding-top: 48px;
+}
+
+.nosongs {
+  font-size: 16px;
+}

@@ -1,6 +1,6 @@
 type Props = {
-  onClick: () => void;
   active: boolean;
+  onClick: () => void;
 };
 
 const ShuffledIcon = ({ active = false, onClick }: Props) => {
