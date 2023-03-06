@@ -1,4 +1,4 @@
-export interface ShazamObject {
+export interface SongObject {
   layout: string;
   type: string;
   key: string;
@@ -82,4 +82,9 @@ export type NavLink = {
   label: string;
   icon: ({ active }: { active: boolean }) => JSX.Element;
   link: string;
+};
+
+export type HistoryType = {
+  song: SongObject;
+  date: string;
 };

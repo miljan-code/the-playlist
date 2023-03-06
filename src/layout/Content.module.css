@@ -1,6 +1,6 @@
 .content {
   height: 100%;
-  width: 100%;
+  max-width: 100%;
 
   overflow-y: auto;
   overflow-x: hidden;
@@ -8,4 +8,10 @@
 }
 .content::-webkit-scrollbar {
   width: 0px;
+}
+
+@media screen and (max-width: 768px) {
+  .content {
+    width: 100vw;
+  }
 }

@@ -1,0 +1,16 @@
+.charts {
+  padding: 24px;
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 24px;
+  row-gap: 48px;
+}
+
+@media screen and (max-width: 768px) {
+  .charts {
+    padding-top: 64px;
+
+    grid-template-columns: 1fr;
+  }
+}

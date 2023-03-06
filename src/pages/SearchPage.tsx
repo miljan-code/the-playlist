@@ -1,6 +1,6 @@
 import { useLocation } from 'react-router-dom';
 import { useSearchSongData, useSongsData } from '../redux/shazamApi';
-import { Album } from '../components';
+import { Album, Search } from '../components';
 import styles from './SearchPage.module.css';
 
 const SearchPage = () => {
@@ -10,6 +10,9 @@ const SearchPage = () => {
 
   return (
     <div className={styles.search}>
+      <div className={styles.searchbar}>
+        <Search />
+      </div>
       <div className={styles.list}>
         {data.length > 0 &&
           data.map((item, i) => (

@@ -81,3 +81,9 @@
   justify-content: center;
   cursor: pointer;
 }
+
+@media screen and (max-width: 768px) {
+  .title {
+    margin-top: 20px;
+  }
+}

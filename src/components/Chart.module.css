@@ -22,3 +22,9 @@
   height: auto;
   border-radius: 3px;
 }
+
+@media screen and (max-width: 768px) {
+  .label {
+    margin-top: 20px;
+  }
+}

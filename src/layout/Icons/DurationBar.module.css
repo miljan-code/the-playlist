@@ -1,11 +1,22 @@
 .durationbar {
-  cursor: pointer;
+  width: 586px;
+  height: 36px;
 }
 
-.animation {
-  animation-play-state: paused;
+@media screen and (max-width: 1330px) {
+  .durationbar {
+    width: 486px;
+  }
 }
 
-.animation:hover {
-  animation-play-state: running;
+@media screen and (max-width: 1230px) {
+  .durationbar {
+    width: 386px;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .durationbar {
+    width: 150px;
+  }
 }

@@ -156,3 +156,65 @@
     transform: rotate(360deg);
   }
 }
+
+@media screen and (max-width: 1439px) {
+  .player {
+    justify-content: space-between;
+  }
+
+  .song-details {
+    margin-right: 0;
+  }
+
+  .duration {
+    margin-right: 20px;
+    margin-bottom: 10px;
+  }
+}
+
+@media screen and (max-width: 1180px) {
+  .song-details {
+    display: none;
+  }
+
+  .song-labels {
+    width: 125px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .song-details {
+    display: flex;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .buttons {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .player {
+    padding: 10px;
+    justify-content: center;
+  }
+
+  .song-details {
+    display: none;
+  }
+
+  .duration {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin: 0;
+    padding: 0;
+  }
+
+  .duration p {
+    display: none;
+    font-size: 10px;
+  }
+}

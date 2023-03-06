@@ -21,3 +21,17 @@
   width: 100%;
   background-color: #e3e7f4;
 }
+
+@media screen and (max-width: 1024px) {
+  .label {
+    display: none;
+  }
+
+  .divider {
+    display: none;
+  }
+
+  .links {
+    margin-bottom: 10px;
+  }
+}

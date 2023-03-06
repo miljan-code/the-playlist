@@ -21,13 +21,14 @@ const DurationBar = ({
 
   return (
     <svg
-      width="586"
-      height="36"
+      // width="586"
+      // height="36"
       viewBox="0 0 586 36"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className={styles.durationbar}
       onClick={e => handleChangeTime(e)}
+      style={{ cursor: 'pointer' }}
+      className={styles.durationbar}
     >
       <defs>
         <linearGradient id="gradient">

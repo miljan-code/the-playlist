@@ -6,6 +6,7 @@ import {
   setPlaySong,
   addToFavourites,
   removeFromFavourites,
+  addToHistory,
 } from '../redux/tracksSlice';
 import {
   DurationBar,
@@ -13,6 +14,7 @@ import {
   AddToFavouritesIcon,
   ShuffledIcon,
 } from './Icons';
+import { SongObject } from '../model/types';
 import { toast } from 'react-toastify';
 import { AiOutlinePause } from 'react-icons/ai';
 import { BsPlayFill } from 'react-icons/bs';
@@ -40,7 +42,10 @@ const Player = () => {
     if (isPlaying) playerRef.current!.play();
     else if (!isPlaying) playerRef.current!.pause();
 
-    const isInFav = favourites.some(item => item.key === currentSong.key);
+    const favs: SongObject[] =
+      JSON.parse(localStorage.getItem('favourites')!) || [];
+
+    const isInFav = favs.some(item => item.key === currentSong.key);
     setIsFavourite(isInFav);
   }, [currentSong, isPlaying, favourites]);
 
@@ -64,12 +69,14 @@ const Player = () => {
     if (currentIndex < 1) return;
     dispatch(setCurrentSong(playlist[currentIndex - 1]));
     dispatch(createPlaylist({ playlist, index: currentIndex - 1 }));
+    dispatch(addToHistory(playlist[currentIndex - 1]));
   };
 
   const handleNextSong = () => {
     if (currentIndex > playlist.length - 2) return;
     dispatch(setCurrentSong(playlist[currentIndex + 1]));
     dispatch(createPlaylist({ playlist, index: currentIndex + 1 }));
+    dispatch(addToHistory(playlist[currentIndex + 1]));
   };
 
   const handleAddToFavourites = () => {
@@ -84,6 +91,7 @@ const Player = () => {
     const randomIndex = Math.floor(Math.random() * playlist.length + 1);
     dispatch(setCurrentSong(playlist[randomIndex]));
     dispatch(createPlaylist({ playlist, index: randomIndex }));
+    dispatch(addToHistory(playlist[randomIndex]));
   };
 
   const handleShuffle = () => {

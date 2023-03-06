@@ -1,16 +1,17 @@
-import { useAppDispatch } from '../../redux/hooks';
+import { useAppDispatch } from '../redux/hooks';
 import {
   setCurrentSong,
   setPlaySong,
   createPlaylist,
-} from '../../redux/tracksSlice';
-import { ShazamObject } from '../../model/types';
+  addToHistory,
+} from '../redux/tracksSlice';
+import { SongObject } from '../model/types';
 import { BsPlayCircleFill } from 'react-icons/bs';
 import styles from './Album.module.css';
 
 type AlbumType = {
-  song: ShazamObject;
-  playlist: ShazamObject[];
+  song: SongObject;
+  playlist: SongObject[];
   index: number;
 };
 
@@ -21,6 +22,7 @@ const Album = ({ song, playlist, index }: AlbumType) => {
     dispatch(setCurrentSong(song));
     dispatch(setPlaySong(true));
     dispatch(createPlaylist({ playlist, index }));
+    dispatch(addToHistory(song));
   };
 
   return (

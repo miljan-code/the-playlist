@@ -21,3 +21,10 @@
 .album-list::-webkit-scrollbar {
   display: none;
 }
+
+@media screen and (max-width: 1000px) {
+  .album-list,
+  .label {
+    display: none;
+  }
+}

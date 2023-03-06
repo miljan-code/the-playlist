@@ -15,3 +15,8 @@
 .nosongs {
   font-size: 16px;
 }
+
+.searchbar {
+  padding: 24px;
+  background: #eee;
+}

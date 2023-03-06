@@ -1,25 +1,32 @@
-import { useAppDispatch, useAppSelector } from '../../redux/hooks';
+import { useAppDispatch, useAppSelector } from '../redux/hooks';
 import {
   setCurrentSong,
   setPlaySong,
   addToFavourites,
   removeFromFavourites,
   createPlaylist,
-} from '../../redux/tracksSlice';
-import { ShazamObject } from '../../model/types';
+  addToHistory,
+} from '../redux/tracksSlice';
+import { SongObject } from '../model/types';
 import { toast } from 'react-toastify';
 import styles from './Song.module.css';
+import { useEffect } from 'react';
 
 type SongProps = {
-  data: ShazamObject;
+  data: SongObject;
   index: number;
-  playlist: ShazamObject[];
+  playlist: SongObject[];
 };
 
 const Song = ({ data, playlist, index }: SongProps) => {
   // hooks
   const dispatch = useAppDispatch();
-  const { favourites } = useAppSelector(state => state.tracks);
+  const { favourites: stateFavourites } = useAppSelector(state => state.tracks);
+
+  const favourites: SongObject[] =
+    JSON.parse(localStorage.getItem('favourites')!) || [];
+
+  useEffect(() => {}, [stateFavourites]);
 
   // data transformation
   const songNumber = index < 9 ? `0${index + 1}` : `${index + 1}`;
@@ -32,6 +39,7 @@ const Song = ({ data, playlist, index }: SongProps) => {
     dispatch(setCurrentSong(data));
     dispatch(setPlaySong(true));
     dispatch(createPlaylist({ playlist, index }));
+    dispatch(addToHistory(data));
   };
 
   const handleAddToFavourites = () => {

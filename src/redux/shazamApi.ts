@@ -1,20 +1,24 @@
 import topCharts from '../constants/songs.json';
 import topCharts2 from '../constants/songs-2.json';
 import houseMusic from '../constants/houseSongs.json';
-import { ShazamObject } from '../model/types';
+import hipHopSongs from '../constants/hipHopSongs.json';
+import kPop from '../constants/kPop.json';
+import rockMusic from '../constants/rockMusic.json';
+import songs2 from '../constants/songs-2.json';
+import { SongObject } from '../model/types';
 
 type SongsFetch = {
   type: 'top-charts' | 'house' | 'top-charts2';
-  num?: number;
+  n?: number;
 };
 
 export const useSongsData = ({
   type = 'top-charts',
-  num = 50,
-}: SongsFetch): ShazamObject[] => {
-  if (type === 'top-charts') return topCharts.slice(0, num);
-  else if (type === 'house') return houseMusic.slice(0, num) as ShazamObject[];
-  else if (type === 'top-charts2') return topCharts2.slice(0, num);
+  n = 50,
+}: SongsFetch): SongObject[] => {
+  if (type === 'top-charts') return topCharts.slice(0, n);
+  else if (type === 'house') return houseMusic.slice(0, n) as SongObject[];
+  else if (type === 'top-charts2') return topCharts2.slice(0, n);
   else return topCharts;
 };
 
@@ -22,7 +26,6 @@ export const useSearchSongData = (term: string) => {
   // Concatinating all the used songs from all JSONs
   const songs = [...topCharts, ...houseMusic, ...topCharts2];
   // Maybe there will be some duplicates so I need to get rid of them
-  console.log(songs);
   const keys = songs.map(item => item.key);
   const filtered = songs.filter(
     ({ key }, index) => !keys.includes(key, index + 1)
@@ -34,7 +37,16 @@ export const useSearchSongData = (term: string) => {
       item.subtitle.toLowerCase().includes(term.toLowerCase())
   );
   // Then returning results
-  return matches as ShazamObject[];
+  return matches as SongObject[];
+};
+
+export const useGetTopChartsData = (n: number) => {
+  return {
+    hiphop: hipHopSongs.slice(0, n),
+    kpop: kPop.slice(0, n),
+    rock: rockMusic.slice(0, n),
+    misc: songs2.slice(0, n),
+  };
 };
 
 // NOTE: ShazamAPI Legacy ( Closed Freemium :( )

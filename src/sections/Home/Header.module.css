@@ -6,3 +6,10 @@
   padding: 24px 41px 0 24px;
   margin-bottom: 61px;
 }
+
+@media screen and (max-width: 768px) {
+  .header {
+    padding: 24px;
+    margin-bottom: 30px;
+  }
+}

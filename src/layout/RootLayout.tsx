@@ -8,6 +8,7 @@ import {
   setPlaySong,
 } from '../redux/tracksSlice';
 import { Sidebar, Content, Player } from '.';
+import { MobileMenu } from '../components';
 import { ToastContainer } from 'react-toastify';
 import styles from './RootLayout.module.css';
 import 'react-toastify/dist/ReactToastify.css';
@@ -26,6 +27,7 @@ const RootLayout = () => {
     <div className={styles.app}>
       <Sidebar />
       <Content>
+        <MobileMenu />
         <Outlet />
         <Player />
         <ToastContainer

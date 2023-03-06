@@ -37,3 +37,9 @@
   background-color: #fff;
   border-radius: 7px;
 }
+
+@media screen and (max-width: 768px) {
+  .notifications {
+    display: none;
+  }
+}

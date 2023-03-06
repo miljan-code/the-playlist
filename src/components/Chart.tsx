@@ -1,13 +1,16 @@
-import { useSongsData } from '../../redux/shazamApi';
 import Song from './Song';
-import styles from './TracksByCountry.module.css';
+import { SongObject } from '../model/types';
+import styles from './Chart.module.css';
 
-const TracksByGenre = () => {
-  const playlist = useSongsData({ type: 'house', num: 20 });
+type Props = {
+  playlist: SongObject[];
+  label: string;
+};
 
+const Chart = ({ playlist, label }: Props) => {
   return (
     <div className={styles.playlist}>
-      <h2 className={styles.label}>Best of House Music in 2023</h2>
+      <h2 className={styles.label}>{label}</h2>
       <div className={styles['song-list']}>
         {playlist?.map((data, i) => (
           <Song
@@ -22,4 +25,4 @@ const TracksByGenre = () => {
   );
 };
 
-export default TracksByGenre;
+export default Chart;

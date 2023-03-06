@@ -56,3 +56,19 @@
   margin-right: 16px;
   transform: rotate(-90deg);
 }
+
+@media screen and (max-width: 1024px) {
+  .logo {
+    padding-right: 0;
+  }
+
+  .logo h2 {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .sidebar {
+    display: none;
+  }
+}

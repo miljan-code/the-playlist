@@ -4,7 +4,7 @@ import { Album } from '../../components';
 import styles from './Albums.module.css';
 
 const Albums = () => {
-  const data = useSongsData({ type: 'top-charts2', num: 12 });
+  const data = useSongsData({ type: 'top-charts2', n: 12 });
   const divRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {

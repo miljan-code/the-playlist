@@ -6,3 +6,21 @@
 
   margin-bottom: 47px;
 }
+
+@media screen and (max-width: 1024px) {
+  .songs {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .songs {
+    background-color: #fff;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .songs {
+    margin-top: 140px;
+  }
+}
